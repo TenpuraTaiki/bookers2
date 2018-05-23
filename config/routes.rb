@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :hons, only: [:index, :create, :edit, :show, :update, :destroy]
+
+  root 'hons#top'
   devise_for :yuzas
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
