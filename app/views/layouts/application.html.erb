@@ -9,6 +9,34 @@
   </head>
 
   <body>
+  <header>
+    <div class="header_waku clearfix container">
+        <div class="header-name">
+            <h1 class="bookers2">Bookers2</h1>
+        </div>
+        
+        <% if yuza_signed_in? %>
+          <nav class="link">
+            <ul class="links">
+                <li class="link_text"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to "ホーム", hons_path %></li>
+                <li class="link_text"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= link_to "User一覧", yuzas_path %></li>
+                <li class="link_text"><span class="glyphicon glyphicon-book" aria-hidden="true"></span><%= link_to "Book一覧", kansougun_path %></li>
+                <li class="link_text"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><%= link_to "ログアウト", destroy_yuza_session_path, method: :delete %></li>
+            </ul>
+          </nav>
+        <% else %>
+          <nav class="link">
+            <ul class="links">
+                <li class="link_text"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to "トップ", root_path %></li>
+                <li class="link_text"><span class="glyphicon glyphicon-file" aria-hidden="true"></span><%= link_to "アバウト", about_path  %></li>
+                <li class="link_text"><span class="glyphicon glyphicon-check" aria-hidden="true"></span><%= link_to "新規会員登録", new_yuza_registration_path %></li>
+                <li class="link_text"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span><%= link_to "ログイン", new_yuza_session_path %></li>
+            </ul>
+          </nav>
+        <% end %>
+        
+    </div>
+</header>
     <%= yield %>
   </body>
 </html>

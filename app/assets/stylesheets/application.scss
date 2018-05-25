@@ -1,0 +1,64 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.top-waku{
+    width: 100%;
+    background-color: blanchedalmond;
+    text-align: center;
+    padding: 20px 0;
+}
+.top-waku p{
+    color: brown
+}
+.index-waku{
+    width: 100%;
+    background-color: rgb(54, 54, 54);
+    padding: 100px 10px;
+}
+.index-waku h1, .index-waku table, .index-waku h2, .index-waku p, .index-waku a, .index-waku li{
+    color: white
+}
+
+.header-waku{
+    width: 100%;
+    height: 40px;
+    background-color: beige
+}
+.header-name{
+    margin-left: 30px;
+    float: left;
+}
+.bookers2{
+    font-size: 32px;
+    line-height: 40px;
+}
+.link{
+    margin-right: 30px;
+    float: right;
+}
+.link_text{
+    margin: 0 20px;
+    font-size: 20px;
+    line-height: 40px;
+    float: left;
+    display: inline-block;
+}
+
+.about{
+    margin: 30px;
+}
+
+.myinfo{
+    margin: 0 auto;
+    padding: 50px 0;
+    background-color: rgb(190, 225, 255)
+}
