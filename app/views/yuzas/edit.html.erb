@@ -1,0 +1,15 @@
+<h2>ユーザー情報編集</h2>
+
+<%= form_for(@yuza) do |f| %>
+        <label>名前</label><br>
+        <%= f.text_field :name, autofocus: true %>
+<br>
+        <label>自己紹介</label><br>
+        <%= f.text_field :yuza_jikosyo, placeholder:"最大50文字" %>
+<br>
+        <label>プロフィール画像</label><br>
+        <%= f.attachment_field :yuza_gazou, placeholder:"画像を貼り付け" %>
+<br>
+        <%= f.submit "変更を保存" %>
+<% end %>
+  

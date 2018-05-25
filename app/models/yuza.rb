@@ -5,5 +5,10 @@ class Yuza < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :name, presence: true
+  validates :name, uniqueness: true
   validates :name, length: { in: 2..20 }
+
+  has_many :hons
+
+  attachment :yuza_gazou
 end

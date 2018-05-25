@@ -1,11 +1,16 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_yuza!
+  before_action :authenticate_yuza!, except: [:top, :about]
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  # ログインしたらマイページに飛ばす
+  def after_sign_in_path_for(resource)
+    yuza_path(current_yuza.id)
+  end
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
   end
 end

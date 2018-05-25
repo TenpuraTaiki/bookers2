@@ -42,9 +42,10 @@
 
         <div class="col-lg-3">
             <div class="myinfo">
-                <h3><span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= @yuza.name %></h3>
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span><h3><%= @yuza.name %></h3>
                 <%= attachment_image_tag @yuza, :yuza_gazou, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %><br>
-                <%= link_to "マイページ", yuza_path(current_yuza.id) %>
+                <%= @yuza.yuza_jikosyo %><br>
+                <%= link_to "マイページ編集", edit_yuza_path(current_yuza.id) %>
             </div>
         </div>
     </div>

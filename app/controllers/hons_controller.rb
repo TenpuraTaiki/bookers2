@@ -2,6 +2,7 @@ class HonsController < ApplicationController
   def index
     @hons = Hon.all
     @hon = Hon.new
+    @yuza = current_yuza
   end
 
   def show
@@ -10,6 +11,7 @@ class HonsController < ApplicationController
 
   def create
     hon = Hon.new(hon_params)
+    hon.yuza_id = current_yuza.id
     if hon.save
       redirect_to hons_path, notice:'投稿成功！こんぐらちゅれーしょん！'
     else
@@ -19,6 +21,9 @@ class HonsController < ApplicationController
 
   def edit
     @hon = Hon.find(params[:id])
+    if @hon.yuza_id != current_yuza.id
+      redirect_to hons_path, notice:'＜error＞投稿者以外は編集することができません'      
+    end
   end
 
   def update
@@ -34,7 +39,18 @@ class HonsController < ApplicationController
   def destroy
     hon =Hon.find(params[:id])
     hon.destroy
-    redirect_to hons_path
+    redirect_to hons_path, notice:'削除しました'
+  end
+
+  def about
+  end
+
+  def yuzas
+    
+  end
+
+  def kansougun
+  
   end
 
   private
