@@ -1,8 +1,14 @@
 <%= notice %>
 
-<p><b>タイトル</b><%= @hon.title %></p>
+<div class="show-waku">
+    <p><b>タイトル</b><%= @hon.title %></p>
 
-<p><b>感想</b><%= @hon.kansou %></p>
+    <p><b>感想</b><%= @hon.kansou %></p>
 
-<%= link_to "編集", edit_hon_path(@hon) %>
-<%= link_to "戻る", hons_path %>
+
+    <% if @hon.yuza == current_yuza %>
+        <%= link_to "編集", edit_hon_path(@hon) %>
+    <% end %>
+
+    <%= link_to "戻る", hons_path %>
+</div>

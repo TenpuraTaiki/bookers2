@@ -27,6 +27,13 @@
 .index-waku h1, .index-waku table, .index-waku h2, .index-waku p, .index-waku a, .index-waku li{
     color: white
 }
+.index-waku td, .index-waku th{
+    padding: 5px 10px;
+}
+.newbook{
+    margin-top: 30px;
+    padding-left: 30px;
+}
 
 .header-waku{
     width: 100%;
@@ -56,9 +63,25 @@
 .about{
     margin: 30px;
 }
+.show-waku{
+    padding-left: 30px;
+    background-color: azure
+}
 
 .myinfo{
     margin: 0 auto;
-    padding: 50px 0;
+    padding: 50px 10px;
     background-color: rgb(190, 225, 255)
+}
+
+.kansougun-waku{
+    width: 100%;
+    background-color: rgb(54, 54, 54);
+    padding: 100px 10px;
+}
+.kansougun-waku h1, .kansougun-waku table, .knasougun-waku h2, .knasougun-waku p, .kansougun-waku a, .kansougun-waku li{
+    color: white
+}
+.user-page-link{
+    text-align: center;
 }

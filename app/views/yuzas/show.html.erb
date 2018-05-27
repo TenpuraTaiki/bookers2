@@ -26,6 +26,7 @@
                     <% end %>
                 </table>
                 <h2>New Book</h2>
+                <div class="newbook">
                 <%= form_for(@hon) do |f| %>
 
                 <p>タイトル</p>
@@ -34,8 +35,10 @@
                 <p>感想</p>
                 <%= f.text_area :kansou %>
                 <!-- 投稿ボタン -->
-                <%= f.submit '投稿' %>
+                <br>
+                <button type="submit" class="btn btn-default">投稿</button>
                 <% end %>
+                </div>
 
             </div>
         </div>
@@ -45,7 +48,9 @@
                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span><h3><%= @yuza.name %></h3>
                 <%= attachment_image_tag @yuza, :yuza_gazou, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %><br>
                 <%= @yuza.yuza_jikosyo %><br>
-                <%= link_to "マイページ編集", edit_yuza_path(current_yuza.id) %>
+                <% if @yuza == current_yuza %>
+                    <%= link_to "マイページ編集", edit_yuza_path(current_yuza.id) %>
+                <% end %>
             </div>
         </div>
     </div>
