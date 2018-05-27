@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="col-lg-9">
+        <div class="index-waku">
+            <h1>ユーザー一覧</h1>
+            <table border="1" class="ichiran">
+                <tr>
+                    <th><b>ユーザー名</b></th>
+                    <th><b>自己紹介</b></th>
+                    <th><b>ユーザーページを見る</b></th>
+                </tr>
+                    <% @yuzas.each do |yuza| %>
+                <tr>
+                    <td><%= yuza.name %></td>
+                    <td><%= yuza.yuza_jikosyo %></td>
+                    <td class="user-page-link"><%= link_to "◆◆click◆◆", yuza_path(yuza.id) %></td>
+                    <% end %>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-lg-3">
+        <div class="myinfo">
+            <h3><span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= @yuza.name %></h3>
+            <%= attachment_image_tag @yuza, :yuza_gazou, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %><br>
+            <%= link_to "マイページ", yuza_path(current_yuza.id) %>
+        </div>
+    </div>
+</div>

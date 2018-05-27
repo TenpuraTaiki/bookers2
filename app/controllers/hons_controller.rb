@@ -15,13 +15,13 @@ class HonsController < ApplicationController
     if hon.save
       redirect_to hons_path, notice:'投稿成功！こんぐらちゅれーしょん！'
     else
-      redirect_to hons_path, notice:'投稿できませんでした。タイトルと感想は空白にできません'
+      redirect_to hons_path, notice:'投稿できませんでした。タイトルと感想は空白にできません。感想は２００文字までです'
     end
   end
 
   def edit
     @hon = Hon.find(params[:id])
-    if @hon.yuza_id != current_yuza.id
+    if @hon.yuza != current_yuza
       redirect_to hons_path, notice:'＜error＞投稿者以外は編集することができません'      
     end
   end
@@ -31,7 +31,7 @@ class HonsController < ApplicationController
     if hon.update(hon_params)
       redirect_to hon_path(hon), notice:'編集成功っす'
     else
-      redirect_to hon_path(hon), notice:'編集できませんでした。タイトルと感想は空白にできません'
+      redirect_to hon_path(hon), notice:'編集できませんでした。タイトルと感想は空白にできません。感想は２００文字までです'
     end
 
   end
@@ -46,11 +46,13 @@ class HonsController < ApplicationController
   end
 
   def yuzas
-    
+    @yuzas = Yuza.all
+    @yuza = current_yuza
   end
 
   def kansougun
-  
+    @hons = Hon.all
+    @yuza = current_yuza
   end
 
   private

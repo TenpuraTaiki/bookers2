@@ -38,6 +38,7 @@ class DeviseCreateYuzas < ActiveRecord::Migration[5.1]
       t.timestamps null: false
     end
 
+    add_index :yuzas, :name, unique: true
     add_index :yuzas, :email,                unique: true
     add_index :yuzas, :reset_password_token, unique: true
     # add_index :yuzas, :confirmation_token,   unique: true

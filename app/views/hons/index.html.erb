@@ -4,28 +4,43 @@
             <div class="index-waku">
                 <p><%= notice %></p>
 
+            <%# エラーの出し方がわからない %>
+            <% if @hon.errors.any? %>
+                <div id="error_explanation">
+                    <ul>
+                        <% @hon.errors.full_message.each do |messaeg| %>
+                          <li><%= message %>
+                        <% end %>
+                    </ul>
+            <% end %>
+            
+
                 <h1>Books</h1>
                 <table border="1" class="ichiran">
                     <tr>
-                        <th><b>タイトル</b></th>
-                        <th><b>感想</b></th>
+                        <th><b> タイトル </b></th>
+                        <th><b> 感想 </b></th>
+                        <th><b> 投稿者 </b></th>
                         <th colspan="3"></th>
                     </tr>
                     <% @hons.each do |hon| %>
                     <tr>
                         <td><%= hon.title %></td>
                         <td><%= hon.kansou %></td>
-                        <td><%= link_to "show", hon_path(hon.id) %></td>
+                        <td><%= hon.yuza.name %></td>
+                        <td><%= link_to " show ", hon_path(hon.id) %></td>
 
                     <% if hon.yuza == current_yuza %>
-                        <td><%= link_to "edit", edit_hon_path(hon.id) %></td>
-                        <td><%= link_to "destroy", hon_path(hon.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+                        <td><%= link_to " edit ", edit_hon_path(hon.id) %></td>
+                        <td><%= link_to " destroy ", hon_path(hon.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
                     <% end %>
 
                     </tr>
                     <% end %>
                 </table>
+                
                 <h2>New Book</h2>
+                <div class="newbook">
                 <%= form_for(@hon) do |f| %>
 
                 <p>タイトル</p>
@@ -34,9 +49,10 @@
                 <p>感想</p>
                 <%= f.text_area :kansou %>
                 <!-- 投稿ボタン -->
-                <%= f.submit '投稿' %>
+                <br>
+                <button type="submit" class="btn btn-default">投稿</button>
                 <% end %>
-
+                </div>
             </div>
         </div>
 
