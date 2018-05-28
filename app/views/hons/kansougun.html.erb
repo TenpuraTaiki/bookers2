@@ -22,6 +22,21 @@
                 </tr>
                 <% end %>
             </table>
+                 <h2>New Book</h2>
+                
+                <div class="newbook">
+                    <%= form_for(@hon) do |f| %>
+
+                    <p>タイトル</p>
+                    <%= f.text_field :title %>
+
+                    <p>感想</p>
+                    <%= f.text_area :kansou %>
+                    <!-- 投稿ボタン -->
+                    <br>
+                    <button type="submit" class="btn btn-default">投稿</button>
+                    <% end %>
+                </div>
         </div>
     </div>
 

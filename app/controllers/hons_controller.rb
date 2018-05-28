@@ -54,6 +54,7 @@ class HonsController < ApplicationController
 
   def kansougun
     @hons = Hon.all
+    @hon = Hon.new
     @yuza = current_yuza
   end
 
