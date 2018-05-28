@@ -10,12 +10,14 @@ class HonsController < ApplicationController
   end
 
   def create
-    hon = Hon.new(hon_params)
-    hon.yuza_id = current_yuza.id
-    if hon.save
+    @hons = Hon.all
+    @yuza = current_yuza
+    @hon = Hon.new(hon_params)
+    @hon.yuza_id = current_yuza.id
+    if @hon.save
       redirect_to hons_path, notice:'投稿成功！こんぐらちゅれーしょん！'
     else
-      redirect_to hons_path, notice:'投稿できませんでした。タイトルと感想は空白にできません。感想は２００文字までです'
+      render :index
     end
   end
 
