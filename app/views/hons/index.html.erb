@@ -15,7 +15,7 @@
                     <% @hons.each do |hon| %>
                     <tr>
                         <td><%= hon.title %></td>
-                        <td><%= hon.kansou %></td>
+                        <td><%= simple_format(hon.kansou) %></td>
                         <td><%= hon.yuza.name %></td>
                         <td><%= link_to " show ", hon_path(hon.id) %></td>
 
